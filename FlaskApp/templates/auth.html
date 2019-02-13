@@ -1,0 +1,97 @@
+﻿{% extends "layout.html" %}
+{% block title %}Authentication{% endblock %}
+{% block head %}
+    {{ super() }}  
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .deb-card-content {
+            background-color: white;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div>
+            <div class="col s12 m6 offset-m3 l4 offset-l4">
+                <div class="card">
+                    <div>
+                        <ul id="tabs-swipe-demo" class="tabs">
+                            <li class="tab col s6"><a class="active" href="#test-swipe-1" id="ltab">Login</a></li>
+                            <li class="tab col s6"><a href="#test-swipe-2" id="rtab">Register</a></li>
+                        </ul>
+                        <div>
+                            {% if result.error == True %}
+                                <p>Error</p>
+                            {% endif %}
+                        </div>
+                        <div id="test-swipe-1" class="col s12 z-depth-1 deb-card-content">
+                            <form class="col s12" style="margin-top:10px;" method="post" action="/login">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="lusername" type="text" class="validate" name="username">
+                                        <label for="lusername">Username</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="lpassword" type="password" class="validate" name="password">
+                                        <label for="lpassword">Password</label>
+                                    </div>
+                                    <div class="" style="text-align:center">
+                                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                                            Login
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                        <div class="col s12" style="padding-top:10px;">
+                                            <a href="#">Forgot my password</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div id="test-swipe-2" class="col s12  z-depth-1 deb-card-content">
+                            <form class="col s12" style="margin-top:10px;" method="post" action="/api/auth/new">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="rname" type="text" class="validate" name="name">
+                                        <label for="rname">Name</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="lusername" type="text" class="validate" name="username">
+                                        <label for="lusername">Username</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="rmail" type="email" class="validate" name="email">
+                                        <label for="rmail">Email</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="rphone" type="tel" class="validate" name="phone">
+                                        <label for="rphone">Phone</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="rid" type="text" class="validate" name="doctor_reg_id">
+                                        <label for="rid">Doctor Reg ID</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="lpassword" type="password" class="validate" name="password">
+                                        <label for="lpassword">Password</label>
+                                    </div>
+                                    <div class="" style="text-align:center">
+                                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                                            Register
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% block scripts %}
+{{ super() }}
+{% endblock %}
+{% endblock %}
